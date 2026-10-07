@@ -1,93 +1,84 @@
-# Metope
+<p align="center">
+  <a href="https://metope.org"><img src="website/public/images/metope-icon.png" width="112" height="112" alt="Metope app icon" /></a>
+</p>
 
-A macOS app for browsing and transferring Android files over USB. Built with SwiftUI and **MetopeEngine**, a Swift MTP engine based on OpenMTP.
+<h1 align="center">Metope</h1>
 
-**Requires macOS 26 or later.** The current build targets Apple Silicon. Intel is not currently packaged or tested.
+<p align="center">
+  <strong>Android file transfer. Built for the Mac.</strong><br />
+  A small, native Mac app for browsing, organizing, and moving files over USB.
+</p>
 
-## Open the app
+<p align="center">
+  <a href="https://metope.org/downloads/Metope-0.1.0-arm64.zip"><strong>Download for Mac</strong></a> ·
+  <a href="https://metope.org">Website</a> ·
+  <a href="https://github.com/lekevicius/metope/issues">Report an issue</a>
+</p>
 
-The ready-to-run build is `dist/Metope.app`. Open it in Finder. The build script uses ad-hoc signing by default; the distribution workflow below uses Developer ID signing and notarization.
+<p align="center">macOS 26+ · Apple Silicon · Free and open source</p>
 
-Quit other MTP clients before connecting a phone. Connect a data-capable USB cable, unlock the phone, choose **File Transfer** in its USB notification, and accept the storage-access prompt.
+<p align="center">
+  <img src="website/src/assets/metope-browser.png" width="1100" alt="Metope showing Android folders in a native Mac file browser with a sidebar, toolbar, and file list." />
+  <br /><sub>The native Metope interface, shown with sample files.</sub>
+</p>
 
-Use **Help → Show Sample Files** to inspect the interface without a phone. Sample mode is prominently labeled and read-only. **Help → Exit Sample Files** returns to the real device connection.
+## A familiar home for your Android files
 
-## Everyday use
+- **Made for macOS.** SwiftUI, Liquid Glass, native menus, system appearance, and familiar keyboard shortcuts.
+- **Browse your way.** List and icon views, folder search, sidebar favorites, and a file inspector. Press Space for Quick Look.
+- **Move files and folders.** Drag from Finder to send to your phone, or select files to save to your Mac. Queue transfers and follow their progress.
+- **Keep things organized.** Create folders, rename files, and delete items you no longer need.
+- **Keep existing files intact.** Metope refuses to overwrite matching names and checks downloaded file sizes before saving.
+- **Local and open.** USB transfers, no account, no analytics. Read, modify, and build the code under the [MIT license](LICENSE).
 
-- Browse storage in the sidebar. Double-click folders; use ⌘[ / ⌘] to go back/forward and ⌘↑ for the parent folder.
-- Use the toolbar search to filter the current folder. Switch between table and icon views, and open the inspector with ⌥⌘I.
-- Drop files or folders from Finder, or use **Send** (⌘U).
-- Select files or folders and use **Save** (⌘S) to choose a Mac destination.
-- Press Space on a file for Quick Look. It downloads and verifies a local temporary copy first.
-- Return renames the selected item. The context menu contains rename and permanent delete; deletion requires confirmation.
-- ⌘R refreshes phone-side changes. ⌘⇧. toggles hidden files. ⌘J opens transfer history.
-- Disconnect with the sidebar eject control or ⌘E. Transfers are serialized; additional transfers can be queued while one is active.
+## Download and get connected
 
-Existing destination names are preserved. Choose a different folder or rename the source instead of overwriting. File links and special files are rejected. Metope excludes `.DS_Store` and transfer-test metadata from recursive copies.
+1. [Download Metope](https://metope.org/downloads/Metope-0.1.0-arm64.zip), unzip it, and move **Metope.app** to **Applications**.
+2. Connect your Android device with a USB cable that supports data.
+3. Unlock the device, choose **File Transfer** in its USB settings, and allow access if prompted.
+4. Open Metope and browse your storage.
 
-Downloads go to a hidden `.Metope-transfer-…` staging directory on the destination volume, are checked against the expected file sizes, and then moved into place. Failed downloads retain their staging directory; **Show unfinished download** reveals it. Stopping an upload can leave a partial object on the phone. No automatic deletion or retry occurs. Size verification is not a checksum comparison.
+The download is Developer ID signed and notarized by Apple. It requires **macOS 26 or later on an Apple Silicon Mac**. Intel builds are not currently available. A [SHA-256 checksum](https://metope.org/downloads/Metope-0.1.0-arm64.zip.sha256) is provided alongside the download.
 
-## Build and test
+Want to look around first? Choose **Help → Show Sample Files** to explore the interface without a connected device.
 
-With Xcode 27 selected:
+## A few useful shortcuts
+
+| Action | Shortcut |
+| --- | --- |
+| Quick Look | Space |
+| Send to phone | ⌘U |
+| Save to Mac | ⌘S |
+| Go back / forward | ⌘[ / ⌘] |
+| Enclosing folder | ⌘↑ |
+| Refresh | ⌘R |
+| Show hidden files | ⌘⇧. |
+| File inspector | ⌥⌘I |
+| Transfer history | ⌘J |
+
+## Compatibility and help
+
+Metope uses Android’s USB file-transfer protocol, MTP, and connects to one device at a time. If your device does not appear, check the cable, unlock the device, select File Transfer, and quit other Android file-transfer apps before refreshing.
+
+**This is an early release.** Automated protocol and transfer-safety tests pass; physical-device compatibility has not yet been validated. Device reports are welcome—see the [testing status](docs/VALIDATION.md) and [report an issue](https://github.com/lekevicius/metope/issues).
+
+Transfers never merge into or replace existing files. Downloads are staged and checked before being saved. Cancelling an upload can leave a partial file on the phone; interrupted downloads remain available for inspection. Transfers do not resume automatically.
+
+## Build and contribute
+
+With an Apple Silicon Mac and Xcode 27:
 
 ```sh
+git clone https://github.com/lekevicius/metope.git
+cd metope
 ./scripts/build.sh
 open dist/Metope.app
 ```
 
-`./scripts/build.sh debug` produces a debug build. Open `Package.swift` in Xcode for editing; use the packaging script for a runnable app with its helper and libraries.
+Bug reports, device compatibility reports, documentation improvements, and pull requests are welcome. Read the [contributing guide](CONTRIBUTING.md) for reporting and testing guidance, and the [developer guide](docs/DEVELOPMENT.md) for architecture, tests, and release packaging.
 
-```sh
-CLANG_MODULE_CACHE_PATH="$PWD/.build/ModuleCache" \
-SWIFTPM_MODULECACHE_OVERRIDE="$PWD/.build/ModuleCache" \
-swift test --disable-sandbox -debug-info-format none
-```
+## License and acknowledgments
 
-The manifest explicitly stamps the GUI executable with macOS 27 SDK linkage. This matters: the SwiftPM toolchain on this host otherwise stamped the executable with its deployment target and triggered legacy macOS control styling. Deployment remains macOS 26. No older-OS visual fallback is included.
+Metope is available under the [MIT license](LICENSE).
 
-## Signing and notarization
-
-Build with your installed Developer ID Application identity:
-
-```sh
-METOPE_SIGNING_IDENTITY='Developer ID Application: Your Name (TEAMID)' ./scripts/build.sh
-```
-
-This signs the library, helper, and app with hardened runtime and secure timestamps. Store notarization credentials interactively with `xcrun notarytool store-credentials metope`, then run:
-
-```sh
-./scripts/notarize.sh metope
-(cd website && npm run sync-app && npm run build)
-```
-
-The notarization script waits for Apple’s result, requires acceptance, staples and validates the ticket, and checks Gatekeeper. Rebuilding afterward replaces the stapled app, so notarize again before packaging that build. Credentials are kept in Keychain, never in the repository.
-
-For website captures, launch `dist/Metope.app/Contents/MacOS/Metope --demo --screenshot`. This hides sample labels only; sample transport remains read-only. Normal `--demo` mode remains labeled.
-
-## Icon and website
-
-The editable icon is `Resources/AppIcon.icon`, copied from the latest saved Icon Composer document. The packaging script compiles it with `actool`, embeds both `Assets.car` and `AppIcon.icns`, and preserves its Liquid Glass material settings. Edit this document in Icon Composer for future icon changes; the older `scripts/icon.swift` generator is no longer part of the build.
-
-The Astro landing page lives in [`website/`](website/README.md). Run `npm ci` and `npm run dev` there for local development, or `npm run check && npm run build` for a static production build. After rebuilding and notarizing the app, `npm run sync-app` in `website/` verifies its notarization, refreshes its native icon renders, and packages the download with a SHA-256 file. Cloudflare Pages republishes https://metope.org on every push to `main`; see the website README for deployment settings.
-
-## Architecture
-
-- `Metope`: SwiftUI app, IOKit hotplug hints, native dialogs, Quick Look and application state.
-- `MetopeEngine`: Swift packet codecs, USB discovery, session/transaction handling, object filesystem and streamed transfers. Exposes a library product and an injectable `BulkTransport` for tests.
-- `CLibUSB`: official libusb public header and module map. libusb handles USB I/O only; it contains no MTP protocol implementation.
-- `MetopeEngineHost`: Swift executable owning a single engine, with correlated JSON requests, results and progress over pipes.
-- `MetopeCore`: app/helper models, structured errors, asynchronous process client, transfer manifests and staging safety.
-- `Tests`: USB packet fixtures, simulated-phone workflows, process failure/cancellation, path and publication safety.
-
-There is no network dependency, account, analytics, or web view. The app is currently unsandboxed to support direct USB access and Finder-selected destinations. macOS handles standard file-access prompts.
-
-## Research, plan and evidence
-
-- [Protocol research](docs/RESEARCH.md)
-- [Implementation plan](docs/PLAN.md)
-- [Swift engine port plan](docs/ENGINE-PLAN.md)
-- [Validation and remaining hardware checks](docs/VALIDATION.md)
-- [Acknowledgments](Resources/ACKNOWLEDGMENTS.txt)
-
-The only third-party binary is dynamically linked libusb 1.0.30; see `Vendor/libusb/README.md` for provenance and rebuilding. The website download is Developer ID signed and notarized by Apple. Physical-device acceptance testing remains outstanding: the Swift engine is fixture-tested, not yet proven across real phones.
+Built with SwiftUI and **MetopeEngine**, a Swift MTP engine based on OpenMTP. USB transport uses [libusb](Vendor/libusb/README.md). Third-party components retain their own licenses; see [acknowledgments](Resources/ACKNOWLEDGMENTS.txt) for credits and notices.
