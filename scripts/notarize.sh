@@ -3,7 +3,8 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 profile="${1:-metope}"
 app="$PWD/dist/Metope.app"
-if ! codesign -dv "$app" 2>&1 | grep -q 'Authority=Developer ID Application:'; then
+signature="$(codesign -dv --verbose=4 "$app" 2>&1)"
+if [[ "$signature" != *"Authority=Developer ID Application:"* ]]; then
     echo 'Build with METOPE_SIGNING_IDENTITY set to a Developer ID Application identity first.' >&2
     exit 1
 fi

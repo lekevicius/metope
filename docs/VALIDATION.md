@@ -1,5 +1,13 @@
 # Validation
 
+## Distribution verification — 2026-10-07
+
+Version 0.1.0 for Apple Silicon was signed with Developer ID Application (team `N56PMJ99UT`) and hardened runtime. Apple accepted submission `68f5edd5-302e-4e30-8c08-112fb6679493`. Stapling, ticket validation, deep signature verification, and Gatekeeper assessment passed (`source=Notarized Developer ID`).
+
+The packaged website download is `website/public/downloads/Metope-0.1.0-arm64.zip`; its SHA-256 is recorded alongside it. The packaging script now requires a valid stapled ticket and Gatekeeper acceptance. All 40 Swift tests and the Astro check/build passed. Physical-device acceptance remains outstanding.
+
+## Initial implementation verification — 2026-10-06
+
 Tested locally on 2026-10-06, Apple Silicon, macOS 27.0.1, Xcode 27.0 (27A266a), Swift 6.4. Deployment target: macOS 26.
 
 ## Swift engine port

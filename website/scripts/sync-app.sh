@@ -12,6 +12,8 @@ if [[ "$version" != '0.1.0' ]]; then
   exit 1
 fi
 codesign --verify --deep --strict "$app"
+xcrun stapler validate "$app"
+spctl --assess --type execute --verbose=2 "$app"
 temp_dir="$(mktemp -d)"
 trap 'rm -rf "$temp_dir"' EXIT
 iconutil -c iconset "$app/Contents/Resources/AppIcon.icns" -o "$temp_dir/AppIcon.iconset"
@@ -20,4 +22,5 @@ cp "$temp_dir/AppIcon.iconset/icon_128x128@2x.png" public/images/metope-icon.png
 CLANG_MODULE_CACHE_PATH="$temp_dir/swift-cache" swift scripts/export-icon.swift "$PWD/$app" "$PWD/public/images/metope-icon-large.png"
 ditto -c -k --sequesterRsrc --keepParent "$app" "$temp_dir/Metope-0.1.0-arm64.zip"
 mv "$temp_dir/Metope-0.1.0-arm64.zip" public/downloads/
+(cd public/downloads && shasum -a 256 Metope-0.1.0-arm64.zip > Metope-0.1.0-arm64.zip.sha256)
 echo 'Updated the website icons and download from dist/Metope.app.'

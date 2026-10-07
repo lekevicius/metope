@@ -12,7 +12,21 @@ npm run build
 npm run preview
 ```
 
-Local preview: http://127.0.0.1:4321. A project-local Node 22 runtime is included for npm scripts. The static output is `dist/`; canonical URLs and sitemap target https://metope.org. Deployment is not configured.
+Local preview: http://127.0.0.1:4321. A project-local Node 22 runtime is included for npm scripts. The static output is `dist/`; canonical URLs and sitemap target https://metope.org.
+
+## Deployment
+
+Cloudflare Pages project `metope` in the personal `Lekevicius` account is connected directly to `lekevicius/metope` on GitHub. Every push to `main` rebuilds and publishes the website to https://metope.org. Preview branch deployments are disabled.
+
+- Root directory: `website`
+- Build command: `npm run check && npm run build`
+- Output directory: `dist`
+- Node version: `22.23.3`
+- Pages hostname: `metope-7ti.pages.dev`
+
+These settings are managed by the Pages Git integration. No GitHub deployment token or Actions workflow is needed. Check the Cloudflare Pages build status on the pushed commit before considering a release live.
+
+The download ZIP is committed in `public/downloads/` and deployed with the site. Pages does not build or sign the macOS app. To release a new app build, sign and notarize it locally, run `npm run sync-app`, then commit and push the updated ZIP and SHA-256 file. Website-only pushes retain the existing notarized build.
 
 ## Refresh the app assets
 
@@ -23,7 +37,7 @@ npm run sync-app
 npm run build
 ```
 
-`sync-app` verifies the app signature, exports 256- and 1024-pixel native icon renders, and packages the download. Version changes require updating the page and script together. It does not notarize the app; use `../scripts/notarize.sh` first.
+`sync-app` verifies the app signature, stapled notarization ticket, and Gatekeeper acceptance before exporting 256- and 1024-pixel native icon renders and packaging the download with a SHA-256 file. Version changes require updating the page and script together. It does not notarize the app; use `../scripts/notarize.sh` first.
 
 ## Assets and content
 

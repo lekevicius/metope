@@ -69,7 +69,7 @@ For website captures, launch `dist/Metope.app/Contents/MacOS/Metope --demo --scr
 
 The editable icon is `Resources/AppIcon.icon`, copied from the latest saved Icon Composer document. The packaging script compiles it with `actool`, embeds both `Assets.car` and `AppIcon.icns`, and preserves its Liquid Glass material settings. Edit this document in Icon Composer for future icon changes; the older `scripts/icon.swift` generator is no longer part of the build.
 
-The Astro landing page lives in [`website/`](website/README.md). Run `npm ci` and `npm run dev` there for local development, or `npm run check && npm run build` for a static production build. After rebuilding the app, `npm run sync-app` in `website/` refreshes its native icon renders and download. Canonical URLs target metope.org; deployment is not configured.
+The Astro landing page lives in [`website/`](website/README.md). Run `npm ci` and `npm run dev` there for local development, or `npm run check && npm run build` for a static production build. After rebuilding and notarizing the app, `npm run sync-app` in `website/` verifies its notarization, refreshes its native icon renders, and packages the download with a SHA-256 file. Cloudflare Pages republishes https://metope.org on every push to `main`; see the website README for deployment settings.
 
 ## Architecture
 
@@ -90,4 +90,4 @@ There is no network dependency, account, analytics, or web view. The app is curr
 - [Validation and remaining hardware checks](docs/VALIDATION.md)
 - [Acknowledgments](Resources/ACKNOWLEDGMENTS.txt)
 
-The only third-party binary is dynamically linked libusb 1.0.30; see `Vendor/libusb/README.md` for provenance and rebuilding. Public distribution still requires signing/notarization and physical-device acceptance testing. The Swift port is fixture-tested, not yet proven across real phones.
+The only third-party binary is dynamically linked libusb 1.0.30; see `Vendor/libusb/README.md` for provenance and rebuilding. The website download is Developer ID signed and notarized by Apple. Physical-device acceptance testing remains outstanding: the Swift engine is fixture-tested, not yet proven across real phones.
