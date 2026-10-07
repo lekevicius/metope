@@ -1,0 +1,132 @@
+warning: /Users/j/Library/org.swift.swiftpm/configuration is not accessible or not writable, disabling user-level cache features.
+warning: /Users/j/Library/org.swift.swiftpm/security is not accessible or not writable, disabling user-level cache features.
+warning: /Users/j/Library/Caches/org.swift.swiftpm is not accessible or not writable, disabling user-level cache features.
+warning: 'metope': failed storing manifest for 'metope' in cache: attempt to write a readonly database
+Building for debugging...
+[Computing dependencies]
+[4 / 29] MetopeCore
+[5 / 30] MetopeCore
+[11 / 37] MetopeEngine
+[15 / 39] MetopeCore
+[18 / 38] MetopeEngine
+[21 / 36] MetopeCoreTests-product
+[28 / 32] MetopeEngineHost-product
+[29 / 33] MetopeEngineTests-product
+[31 / 35] Metope-product
+[33 / 35] Metope-product
+Build complete! (3,70 secs)
+Test Suite 'All tests' started at 2026-10-06 23:21:04.158.
+Test Suite 'MetopeEngineTests.xctest' started at 2026-10-06 23:21:04.159.
+Test Suite 'CodecTests' started at 2026-10-06 23:21:04.159.
+Test Case '-[MetopeEngineTests.CodecTests testBoundsCheckedBeforeArrayAllocation]' started.
+Test Case '-[MetopeEngineTests.CodecTests testBoundsCheckedBeforeArrayAllocation]' passed (0.001 seconds).
+Test Case '-[MetopeEngineTests.CodecTests testContainerMatchesWireBytesAndLargeSentinel]' started.
+Test Case '-[MetopeEngineTests.CodecTests testContainerMatchesWireBytesAndLargeSentinel]' passed (0.000 seconds).
+Test Case '-[MetopeEngineTests.CodecTests testObjectDatasetRoundTripAndSizeSentinel]' started.
+Test Case '-[MetopeEngineTests.CodecTests testObjectDatasetRoundTripAndSizeSentinel]' passed (0.002 seconds).
+Test Case '-[MetopeEngineTests.CodecTests testResponseCodesDistinguishMissingObjectAndFullStorage]' started.
+Test Case '-[MetopeEngineTests.CodecTests testResponseCodesDistinguishMissingObjectAndFullStorage]' passed (0.000 seconds).
+Test Case '-[MetopeEngineTests.CodecTests testUTF16SurrogatePairsAndLimits]' started.
+Test Case '-[MetopeEngineTests.CodecTests testUTF16SurrogatePairsAndLimits]' passed (0.000 seconds).
+Test Suite 'CodecTests' passed at 2026-10-06 23:21:04.163.
+	 Executed 5 tests, with 0 failures (0 unexpected) in 0.004 (0.004) seconds
+Test Suite 'EngineTests' started at 2026-10-06 23:21:04.163.
+Test Case '-[MetopeEngineTests.EngineTests testCaseDistinctNamesBrowseButCannotBeCopiedTogether]' started.
+Test Case '-[MetopeEngineTests.EngineTests testCaseDistinctNamesBrowseButCannotBeCopiedTogether]' passed (0.008 seconds).
+Test Case '-[MetopeEngineTests.EngineTests testCollisionsDoNotDeleteOrReplaceExistingFiles]' started.
+Test Case '-[MetopeEngineTests.EngineTests testCollisionsDoNotDeleteOrReplaceExistingFiles]' passed (0.005 seconds).
+Test Case '-[MetopeEngineTests.EngineTests testDescriptorBasedFileDatesRoundTrip]' started.
+Test Case '-[MetopeEngineTests.EngineTests testDescriptorBasedFileDatesRoundTrip]' passed (0.003 seconds).
+Test Case '-[MetopeEngineTests.EngineTests testFailedMetadataDoesNotSilentlyOmitFiles]' started.
+Test Case '-[MetopeEngineTests.EngineTests testFailedMetadataDoesNotSilentlyOmitFiles]' passed (0.001 seconds).
+Test Case '-[MetopeEngineTests.EngineTests testLargeSizeUses64BitObjectProperty]' started.
+Test Case '-[MetopeEngineTests.EngineTests testLargeSizeUses64BitObjectProperty]' passed (0.002 seconds).
+Test Case '-[MetopeEngineTests.EngineTests testOverlappingDownloadRootsFailBeforeCreatingFiles]' started.
+Test Case '-[MetopeEngineTests.EngineTests testOverlappingDownloadRootsFailBeforeCreatingFiles]' passed (0.002 seconds).
+Test Case '-[MetopeEngineTests.EngineTests testPhoneWorkflowBrowseCreateRenameUploadDownloadDelete]' started.
+Test Case '-[MetopeEngineTests.EngineTests testPhoneWorkflowBrowseCreateRenameUploadDownloadDelete]' passed (0.046 seconds).
+Test Case '-[MetopeEngineTests.EngineTests testReadOnlyAndIdentityChangeBlockMutations]' started.
+Test Case '-[MetopeEngineTests.EngineTests testReadOnlyAndIdentityChangeBlockMutations]' passed (0.001 seconds).
+Test Case '-[MetopeEngineTests.EngineTests testSymlinkDestinationCannotEscapeDownloadRoot]' started.
+Test Case '-[MetopeEngineTests.EngineTests testSymlinkDestinationCannotEscapeDownloadRoot]' passed (0.006 seconds).
+Test Case '-[MetopeEngineTests.EngineTests testWireProgressAndResultDecodeIntoAppModels]' started.
+Test Case '-[MetopeEngineTests.EngineTests testWireProgressAndResultDecodeIntoAppModels]' passed (0.007 seconds).
+Test Suite 'EngineTests' passed at 2026-10-06 23:21:04.244.
+	 Executed 10 tests, with 0 failures (0 unexpected) in 0.080 (0.081) seconds
+Test Suite 'SessionTests' started at 2026-10-06 23:21:04.244.
+Test Case '-[MetopeEngineTests.SessionTests test64BitSentinelReceiveUsesKnownLengthWithoutAllocatingGigabytes]' started.
+Test Case '-[MetopeEngineTests.SessionTests test64BitSentinelReceiveUsesKnownLengthWithoutAllocatingGigabytes]' passed (0.000 seconds).
+Test Case '-[MetopeEngineTests.SessionTests testAlignedDataWithoutZLPDoesNotConsumeResponseAsFile]' started.
+Test Case '-[MetopeEngineTests.SessionTests testAlignedDataWithoutZLPDoesNotConsumeResponseAsFile]' passed (0.000 seconds).
+Test Case '-[MetopeEngineTests.SessionTests testCombinedReceiveConsumesAlignedZLPBeforeResponse]' started.
+Test Case '-[MetopeEngineTests.SessionTests testCombinedReceiveConsumesAlignedZLPBeforeResponse]' passed (0.000 seconds).
+Test Case '-[MetopeEngineTests.SessionTests testEarlyErrorResponseAndTransactionMismatch]' started.
+Test Case '-[MetopeEngineTests.SessionTests testEarlyErrorResponseAndTransactionMismatch]' passed (0.000 seconds).
+Test Case '-[MetopeEngineTests.SessionTests testFailureAfterAllDataNeverReportsSuccess]' started.
+Test Case '-[MetopeEngineTests.SessionTests testFailureAfterAllDataNeverReportsSuccess]' passed (0.000 seconds).
+Test Case '-[MetopeEngineTests.SessionTests testSendPacketBoundariesAndZeroByteFile]' started.
+Test Case '-[MetopeEngineTests.SessionTests testSendPacketBoundariesAndZeroByteFile]' passed (0.000 seconds).
+Test Case '-[MetopeEngineTests.SessionTests testSessionUsesZeroThenMonotonicTransactionIDs]' started.
+Test Case '-[MetopeEngineTests.SessionTests testSessionUsesZeroThenMonotonicTransactionIDs]' passed (0.000 seconds).
+Test Case '-[MetopeEngineTests.SessionTests testShortObjectAndShortLocalSourceInvalidateSession]' started.
+Test Case '-[MetopeEngineTests.SessionTests testShortObjectAndShortLocalSourceInvalidateSession]' passed (0.000 seconds).
+Test Case '-[MetopeEngineTests.SessionTests testSizeMismatchAndUnboundedMetadataAreRejected]' started.
+Test Case '-[MetopeEngineTests.SessionTests testSizeMismatchAndUnboundedMetadataAreRejected]' passed (0.000 seconds).
+Test Case '-[MetopeEngineTests.SessionTests testSplitHeaderNegotiationControlsNextSend]' started.
+Test Case '-[MetopeEngineTests.SessionTests testSplitHeaderNegotiationControlsNextSend]' passed (0.000 seconds).
+Test Case '-[MetopeEngineTests.SessionTests testStaleSessionRecoveryIsBounded]' started.
+Test Case '-[MetopeEngineTests.SessionTests testStaleSessionRecoveryIsBounded]' passed (0.000 seconds).
+Test Suite 'SessionTests' passed at 2026-10-06 23:21:04.247.
+	 Executed 11 tests, with 0 failures (0 unexpected) in 0.002 (0.003) seconds
+Test Suite 'MetopeEngineTests.xctest' passed at 2026-10-06 23:21:04.247.
+	 Executed 26 tests, with 0 failures (0 unexpected) in 0.086 (0.088) seconds
+Test Suite 'All tests' passed at 2026-10-06 23:21:04.247.
+	 Executed 26 tests, with 0 failures (0 unexpected) in 0.086 (0.089) seconds
+Test Suite 'All tests' started at 2026-10-06 23:21:04.389.
+Test Suite 'MetopeCoreTests.xctest' started at 2026-10-06 23:21:04.390.
+Test Suite 'BridgeTests' started at 2026-10-06 23:21:04.390.
+Test Case '-[MetopeCoreTests.BridgeTests testConcurrentRequestRejectedAndCancellationResolvesPending]' started.
+Test Case '-[MetopeCoreTests.BridgeTests testConcurrentRequestRejectedAndCancellationResolvesPending]' passed (0.164 seconds).
+Test Case '-[MetopeCoreTests.BridgeTests testFinalEngineErrorPropagates]' started.
+Test Case '-[MetopeCoreTests.BridgeTests testFinalEngineErrorPropagates]' passed (0.047 seconds).
+Test Case '-[MetopeCoreTests.BridgeTests testHelperCrashResolvesPending]' started.
+Test Case '-[MetopeCoreTests.BridgeTests testHelperCrashResolvesPending]' passed (0.032 seconds).
+Test Case '-[MetopeCoreTests.BridgeTests testSplitFramesIgnoreStaleRequestAndDeliverProgress]' started.
+Test Case '-[MetopeCoreTests.BridgeTests testSplitFramesIgnoreStaleRequestAndDeliverProgress]' passed (0.072 seconds).
+Test Suite 'BridgeTests' passed at 2026-10-06 23:21:04.706.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 0.315 (0.316) seconds
+Test Suite 'CoreTests' started at 2026-10-06 23:21:04.706.
+Test Case '-[MetopeCoreTests.CoreTests testEnginePayloadsPreserveLargeSizes]' started.
+Test Case '-[MetopeCoreTests.CoreTests testEnginePayloadsPreserveLargeSizes]' passed (0.003 seconds).
+Test Case '-[MetopeCoreTests.CoreTests testErrorOnDoneIsNotSuccess]' started.
+Test Case '-[MetopeCoreTests.CoreTests testErrorOnDoneIsNotSuccess]' passed (0.000 seconds).
+Test Case '-[MetopeCoreTests.CoreTests testManifestRejectsOutsideAndCaseCollision]' started.
+Test Case '-[MetopeCoreTests.CoreTests testManifestRejectsOutsideAndCaseCollision]' passed (0.000 seconds).
+Test Case '-[MetopeCoreTests.CoreTests testPublishRefusesExistingFileAndRetainsOriginal]' started.
+Test Case '-[MetopeCoreTests.CoreTests testPublishRefusesExistingFileAndRetainsOriginal]' passed (0.003 seconds).
+Test Case '-[MetopeCoreTests.CoreTests testRejectTraversalAndAmbiguousNames]' started.
+Test Case '-[MetopeCoreTests.CoreTests testRejectTraversalAndAmbiguousNames]' passed (0.000 seconds).
+Test Case '-[MetopeCoreTests.CoreTests testStagingRejectsTraversal]' started.
+Test Case '-[MetopeCoreTests.CoreTests testStagingRejectsTraversal]' passed (0.001 seconds).
+Test Case '-[MetopeCoreTests.CoreTests testStorageCapacityWireFormat]' started.
+Test Case '-[MetopeCoreTests.CoreTests testStorageCapacityWireFormat]' passed (0.000 seconds).
+Test Case '-[MetopeCoreTests.CoreTests testSymlinkIsRejectedBeforeUpload]' started.
+Test Case '-[MetopeCoreTests.CoreTests testSymlinkIsRejectedBeforeUpload]' passed (0.001 seconds).
+Test Case '-[MetopeCoreTests.CoreTests testTruncatedDownloadNeverPublishes]' started.
+Test Case '-[MetopeCoreTests.CoreTests testTruncatedDownloadNeverPublishes]' passed (0.002 seconds).
+Test Case '-[MetopeCoreTests.CoreTests testVerifiedDownloadPublishesEmptyFolderAndZeroByteFile]' started.
+Test Case '-[MetopeCoreTests.CoreTests testVerifiedDownloadPublishesEmptyFolderAndZeroByteFile]' passed (0.002 seconds).
+Test Suite 'CoreTests' passed at 2026-10-06 23:21:04.722.
+	 Executed 10 tests, with 0 failures (0 unexpected) in 0.015 (0.016) seconds
+Test Suite 'MetopeCoreTests.xctest' passed at 2026-10-06 23:21:04.722.
+	 Executed 14 tests, with 0 failures (0 unexpected) in 0.330 (0.332) seconds
+Test Suite 'All tests' passed at 2026-10-06 23:21:04.722.
+	 Executed 14 tests, with 0 failures (0 unexpected) in 0.330 (0.333) seconds
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􁁛  Test run with 0 tests in 0 suites passed after 0.001 seconds.
+􀟈  Test run started.
+􀄵  Testing Library Version: 2084
+􀄵  Target Platform: arm64e-apple-macos14.0
+􁁛  Test run with 0 tests in 0 suites passed after 0.001 seconds.

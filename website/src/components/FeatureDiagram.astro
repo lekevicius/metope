@@ -1,0 +1,46 @@
+---
+interface Props { kind: 'browse' | 'organize' | 'transfer' }
+const { kind } = Astro.props;
+---
+<svg viewBox="0 0 360 220" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="feature-diagram">
+  {kind === 'browse' && <>
+    <g stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M51 60h66l13 13h67v91H51z" fill="var(--diagram-paper)" />
+      <path d="M51 85h146M69 104h10m12 0h48M69 126h10m12 0h33M69 148h10m12 0h48" />
+      <rect x="220" y="53" width="85" height="63" rx="6" fill="var(--diagram-paper)" />
+      <path d="m231 103 21-25 14 15 10-10 18 20M280 67h.1" />
+      <path d="M208 135h98M208 149h64M208 164h40" opacity=".3" />
+      <circle cx="183" cy="135" r="32" fill="var(--diagram-paper)" />
+      <path d="m206 158 24 24" stroke-width="5" />
+      <circle cx="183" cy="135" r="23" stroke="var(--diagram-accent)" />
+    </g>
+  </>}
+  {kind === 'organize' && <>
+    <g stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M46 69h32l10 10h61v65H46z" fill="var(--diagram-paper)" />
+      <path d="M46 87h103M68 105h34M68 119h51" opacity=".6" />
+      <path d="M197 58h38l11 11h69v74H197z" fill="var(--diagram-paper)" />
+      <path d="M197 78h118M219 99h38M219 114h60" opacity=".6" />
+      <path d="M123 169h94q15 0 15-15v-6M121 169l8-7m-8 7 8 7" stroke="var(--diagram-accent)" />
+      <rect x="135" y="94" width="72" height="65" rx="5" fill="var(--diagram-paper)" transform="rotate(-8 171 126)" />
+      <path d="m162 137 20-23 7 6-20 23-9 3zM179 117l7 6" stroke="var(--diagram-accent)" />
+      <path d="M248 169h64" stroke-dasharray="2 5" opacity=".4" />
+    </g>
+  </>}
+  {kind === 'transfer' && <>
+    <g stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M51 53h24l10 10v39H51zM75 53v11h10" fill="var(--diagram-paper)" />
+      <path d="M109 71h188" opacity=".2" />
+      <path d="M109 71h145" stroke="var(--diagram-accent)" stroke-width="4" />
+      <circle cx="301" cy="71" r="12" fill="var(--diagram-paper)" />
+      <path d="m296 71 4 4 7-8" />
+      <path d="M51 121h24l10 10v39H51zM75 121v11h10" fill="var(--diagram-paper)" />
+      <path d="M109 139h166" opacity=".2" />
+      <path d="M109 139h81" stroke="var(--diagram-accent)" stroke-width="4" />
+      <path d="M109 157h72" opacity=".2" />
+      <circle cx="301" cy="139" r="17" fill="var(--diagram-paper)" />
+      <path d="M301 129v11l7 4M290 180h21" />
+      <path d="M111 87h74" opacity=".2" />
+    </g>
+  </>}
+</svg>

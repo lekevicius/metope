@@ -1,0 +1,101 @@
+{
+  "features" : [
+    "refractivity"
+  ],
+  "fill" : {
+    "automatic-gradient" : "srgb:0.54377,0.50428,0.44900,1.00000"
+  },
+  "groups" : [
+    {
+      "blend-mode" : "normal",
+      "blur-material" : null,
+      "layers" : [
+        {
+          "image-name" : "06-front-arm.svg",
+          "name" : "06-front-arm"
+        }
+      ],
+      "lighting" : "individual",
+      "name" : "04 Front arm",
+      "refractivity" : {
+        "depth" : 0,
+        "enabled" : true,
+        "strength" : 0.364765625
+      },
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.35
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0
+      }
+    },
+    {
+      "blend-mode" : "normal",
+      "layers" : [
+        {
+          "image-name" : "04-head.svg",
+          "name" : "04-head"
+        },
+        {
+          "image-name" : "02-body.svg",
+          "name" : "02-body"
+        },
+        {
+          "image-name" : "03-back-arm.svg",
+          "name" : "03-back-arm"
+        }
+      ],
+      "lighting" : "individual",
+      "name" : "03 Figure",
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.35
+      },
+      "translucency" : {
+        "enabled" : false,
+        "value" : 0
+      }
+    },
+    {
+      "blend-mode" : "normal",
+      "layers" : [
+        {
+          "image-name" : "05-file.svg",
+          "name" : "05-file"
+        }
+      ],
+      "name" : "02 File",
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.35
+      },
+      "translucency" : {
+        "enabled" : false,
+        "value" : 0
+      }
+    },
+    {
+      "blend-mode" : "soft-light",
+      "layers" : [
+        {
+          "image-name" : "01-ground.svg",
+          "name" : "01-ground"
+        }
+      ],
+      "name" : "01 Ground",
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.35
+      },
+      "translucency" : {
+        "enabled" : false,
+        "value" : 0
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "squares" : "shared"
+  }
+}
